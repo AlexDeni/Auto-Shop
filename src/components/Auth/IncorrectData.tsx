@@ -7,7 +7,7 @@ import {Box} from "grommet";
 
 interface IncorrectDataProps{
     name: string,
-    message?: object
+    message?: string
 }
 
 const IncorrectDataStyle = styled.span`

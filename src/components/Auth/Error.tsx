@@ -2,11 +2,12 @@ import React from "react";
 import {useStores} from "../../app/use-stores";
 import styled from "styled-components";
 import {ErrorMessage} from "formik";
+import {Box} from "grommet";
 
 
 interface ErrorProps{
     name?: string,
-    message?: object
+    message?: string
 }
 
 const ErrorStyle = styled.p`
@@ -17,12 +18,9 @@ export const Error: React.FC<ErrorProps>  = ({name, message}) => {
     const { UserAuth } = useStores();
 
 
-    console.log('err', UserAuth.error)
 
-    if (UserAuth.error) {
-
-        /**/
-        return <ErrorStyle><ErrorMessage name="password" render={UserAuth.error.message} /></ErrorStyle>
+    if (UserAuth.error.message) {
+        console.log('error', UserAuth.error.message)
     }
 
     return null;
@@ -30,3 +28,4 @@ export const Error: React.FC<ErrorProps>  = ({name, message}) => {
 
 
 //The email address is badly formatted.   Incorrect email or password
+//<ErrorStyle><ErrorMessage name="password" render={UserAuth.error.message} /></ErrorStyle>

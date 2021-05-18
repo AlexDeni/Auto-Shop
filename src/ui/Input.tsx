@@ -11,7 +11,7 @@ interface IInputProps {
     children?: string,
     placeholder?: string,
     label?: string,
-    setTouched?: any,
+    setTouched?: object,
     id?: string | number,
     onBlur?: object,
     onFocus?: object,
@@ -21,7 +21,7 @@ interface IInputProps {
     onKeyPress?: () => void,
     error?: string,
     name?: string,
-    values?: any
+    values?: string
 }
 
 interface IStyledInputProps {

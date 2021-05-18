@@ -1,19 +1,19 @@
-import {CounterStore} from "./Counter";
 import { createContext } from "react";
-import {UserAuthStore} from "./UserAuth";
+import {UserAuthStore} from "./UserAuthStore";
+import { AutoListStore } from "./AutoListStore";
 
 
 export interface IStores{
-    Counter?: CounterStore;
     UserAuth?: UserAuthStore;
+    AutoList?: AutoListStore;
 }
 
 const stores: IStores = {};
 
 
 export const rootStoreContext = createContext({
-    Counter: new CounterStore(stores),
     UserAuth: new UserAuthStore(stores),
+    AutoList: new AutoListStore(stores),
 });
 
 

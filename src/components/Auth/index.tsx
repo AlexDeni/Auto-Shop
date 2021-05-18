@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import {Box} from "grommet";
 import {useHistory} from "react-router";
 import config from './config.json';
-import {Formik, Form } from 'formik';
+import {Formik, Form, FormikValues} from 'formik';
 import {SignInSchema, SignUpSchema} from "./validation";
 import {Button} from "../../ui/Button";
 import { IncorrectData} from "./IncorrectData";
@@ -12,14 +12,14 @@ import {UserContext} from "../../app/UserProvider";
 import {PROJECT_NAVIGATION} from "../../interfaces/apiEntities";
 import {Error} from "./Error";
 
-type TAuthTypes = 'login' | 'auth'
+type TAuthTypes = 'login' | 'auth' | 'changePass'
 
 interface IAuthFormProps {
     authType: TAuthTypes
     handleBlur?: object
     handleChange?: () => void
     handleSubmit?: () => void
-    errors?: object
+    errors?: string
     touched?: object
     values?: any
 }
@@ -38,16 +38,15 @@ export const AuthForm: React.FC<IAuthFormProps> = ({authType }) => {
 
     const initialValues: FormValues = { email: '',  login: '', password: '', confirmPassword: '' };
 
-
-
-    const handleClick = (values:FormValues):void => {
-        let login:any = values.login
-        let password:any = values.password
+    const handleClick = (values: FormikValues):void => {
+        let login:string = values.login
+        let password:string = values.password
+        let email:string = values.email
 
         if(authType === "login"){
             UserAuth.signIn(login, password)
         }
-        UserAuth.signUp(login, password)
+        UserAuth.signUp(email, password)
 
     }
 

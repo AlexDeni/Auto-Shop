@@ -42,3 +42,4 @@ export const SignUpSchema = Yup.object().shape({
     password: passwordValidation(),
     confirmPassword: confirmPasswordValidation(),
 });
+

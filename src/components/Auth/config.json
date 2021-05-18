@@ -58,5 +58,26 @@
         }
       ]
     }
+  ],
+  "changePass": [
+    {
+      "title": "Войти в аккаунт",
+      "description": "Пожалуйста, войдите в свой аккаунт",
+      "buttonTitle": "Ввойти",
+      "input": [
+        {
+          "type": "text",
+          "icon": "account_circle",
+          "placeholder": "Введите логин",
+          "name": "login"
+        },
+        {
+          "type": "password",
+          "icon": "account_circle",
+          "placeholder": "Введите пароль",
+          "name": "password"
+        }
+      ]
+    }
   ]
 }
